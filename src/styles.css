@@ -1,0 +1,68 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  :root {
+    --bg-color: #0c0c0c;
+    --text-color: #fff;
+    --main-color: #6A1B9A;
+    --main-light-color: #a32eec;
+    --secondary-color: #2c2c2c;
+
+    --big-font: 6.6rem;
+    --subtitle-font: 3.3rem;
+    --p-font: 1rem;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  @media(max-width: 1770px){
+    nav{
+        padding: 22px 4%;
+    }
+    .icons{
+        padding: 0 4%;
+    }
+}
+
+@media(max-width: 1670px){
+  :root{
+    --big-font: 5.5rem;
+    --p-font: 15px;
+  }
+}
+
+@media(max-width: 1370px){
+  .icons{
+    display: none;
+  }
+  nav{
+    padding: 0 4%;
+  }
+}
+
+@media(max-width: 1150px){
+  :root{
+    --big-font: 4.6rem;
+  }
+}
+
+@media(max-width: 570px){
+  :root{
+      --big-font: 4rem;
+  }
+}
+
+@media(max-width: 440px){
+  :root{
+    --big-font: 3.4rem;
+  }
+}

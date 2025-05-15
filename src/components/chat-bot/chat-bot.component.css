@@ -1,0 +1,233 @@
+:root {
+  --main-color: #007bff;
+  --secondary-color: #f8f9fa;
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --user-message-bg: rgba(0, 123, 255, 0.1);
+  --bot-message-bg: rgba(0, 123, 255, 0.05);
+  --button-hover: #0056b3;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chatbot-toggle {
+  background-color: var(--main-color);
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.chatbot-toggle:hover {
+  background-color: var(--button-hover);
+}
+
+.chatbot-window {
+  width: 350px;
+  height: 450px;
+  background: var(--bg-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text-color);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chatbot-header {
+  background: var(--main-color);
+  color: var(--text-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  border-radius: 12px 12px 0 0;
+}
+
+.chatbot-body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.chatbot-input {
+  padding: 1rem;
+  display: flex;
+  gap: 10px;
+  background-color: var(--secondary-color);
+  border-radius: 0 0 12px 12px;
+}
+
+.chatbot-input input {
+  flex-grow: 1;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.chatbot-input input:focus {
+  border-color: var(--main-color);
+}
+
+.chatbot-input button {
+  background-color: var(--main-color);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.chatbot-input button:hover {
+  background-color: var(--button-hover);
+}
+
+.chat-message {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 10px;
+  display: inline-block;
+  max-width: 80%;
+  word-wrap: break-word;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.chat-message.user {
+  background-color: var(--user-message-bg);
+  text-align: right;
+  margin-left: auto;
+  border-radius: 12px 12px 0 12px;
+}
+
+.chat-message.bot {
+  background-color: var(--bot-message-bg);
+  text-align: left;
+  margin-right: auto;
+  border-radius: 12px 12px 12px 0;
+}
+
+.message-content {
+  white-space: pre-line;
+  background-color: var(--main-light-color);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.chatbot-body {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@keyframes chatbotSlideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes chatbotSlideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+.chatbot-window.animate-in {
+  animation: chatbotSlideIn 0.3s ease forwards;
+}
+
+.chatbot-window.animate-out {
+  animation: chatbotSlideOut 0.3s ease forwards;
+}
+
+.loading-spinner {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.loading-spinner span {
+  width: 8px;
+  height: 8px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loading-spinner span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-spinner span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}

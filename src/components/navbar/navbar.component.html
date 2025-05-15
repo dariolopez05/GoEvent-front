@@ -1,0 +1,31 @@
+<nav class="navbar">
+    <a class="nav-logo" href="/home">
+        <img src="assets/images/logo.png" alt="logo">
+    </a>
+
+    <ul [ngClass]="menuOpen ? 'nav-links open' : 'nav-links'">
+      <li (click)="closeMenu()"><a routerLink="/home"  routerLinkActive="active">Inicio</a></li>
+      <li (click)="closeMenu()"><a routerLink="/events" routerLinkActive="active">Eventos</a></li>
+      <li (click)="closeMenu()"><a routerLink="/maps" routerLinkActive="active">Mapa</a></li>
+      @if(!isLoggedIn) {
+      <li (click)="closeMenu()"><a routerLink="/login" routerLinkActive="active">Favoritos</a></li>
+      } @else{
+      <li (click)="closeMenu()"><a routerLink="/favourites" routerLinkActive="active">Favoritos</a></li>
+      }
+    </ul>
+
+    <div class="login">
+      @if(!isLoggedIn) {
+        <a href="/login" class="nav-btn">Sign In</a>
+      }
+    
+      @if(isLoggedIn) {
+        <div class="user-icon">
+          <a href="/user"><i class="bx bx-user" [attr.title]="username"></i></a>
+        </div>
+      }
+    
+      <div (click)="toggleMenu()" class="bx bx-menu" id="menu-icon"></div>
+    </div>
+    
+</nav>

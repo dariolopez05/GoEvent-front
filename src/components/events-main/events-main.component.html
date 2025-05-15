@@ -1,0 +1,100 @@
+<div class="section-header">
+  <h1 class="section-title" data-aos="flip-right" data-aos-duration="1000">Eventos</h1>
+
+  <div class="filters-container">
+    <div class="city-filter">
+      <label for="citySelect">Ciudad:</label>
+      <select id="citySelect" (change)="onCityChange($event)">
+        <option value="">Todas</option>
+        @for (city of availableCities; track city) {
+          <option [value]="city">{{ city }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="search-group">
+      <i class="fas fa-search"></i>
+      <input
+        class="search"
+        type="text"
+        [(ngModel)]="searchInput"
+        placeholder="Buscar evento..."
+      />
+      <button class="search-button" (click)="onSearchClick()">Buscar</button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="event-card-container"
+  data-aos="zoom-in"
+  data-aos-duration="500"
+  data-aos-easing="ease-in-out"
+>
+  @for (event of topEvents; track event) {
+    <div class="event-card">
+      <img class="event-image" [src]="event.images[0].url" [alt]="event.name" />
+      <div class="event-info">
+        <h3>{{ event.name }}</h3>
+        <p class="event-date">{{ event.dates.start.localDate }}</p>
+        <p class="event-state">{{ event._embedded.venues[0].state.name }}</p>
+        <p class="event-state">{{ event._embedded.venues[0].name }}</p>
+
+        <div class="event-buttons">
+          <a class="event-button" [href]="event.url" target="_blank">Entradas</a>
+
+          @if (isLoggedIn) {
+            <button
+              class="save-button"
+              title="Guardar evento"
+              (click)="saveEvent(event.id)"
+              [disabled]="loadingById[event.id]"
+            >
+              @if (loadingById[event.id]) {
+                <div class="spinner-container">
+                  <div class="spinner"></div>
+                </div>
+              } @else {
+                @if (favourites[event.id]) {
+                  <i class="material-icons">bookmark</i>
+                } @else {
+                  <i class="material-icons">bookmark_border</i>
+                }
+              }
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="pagination-buttons">
+  <div class="page-info">
+    Página {{ actualPage + 1 }} de {{ totalPages }}
+  </div>
+
+  @if (actualPage > 0) {
+    <button (click)="goToPage(0)" class="icon-button" title="Primera página">
+      <span class="material-icons">first_page</span>
+    </button>
+
+    <button (click)="previousPage()" class="icon-button" title="Anterior">
+      <span class="material-icons">navigate_before</span>
+    </button>
+  }
+
+  @if (actualPage + 1 < totalPages) {
+    <button (click)="nextPage()" class="icon-button" title="Siguiente">
+      <span class="material-icons">navigate_next</span>
+    </button>
+
+    <button
+      (click)="goToPage(totalPages - 1)"
+      class="icon-button"
+      title="Última página"
+    >
+      <span class="material-icons">last_page</span>
+    </button>
+  }
+</div>

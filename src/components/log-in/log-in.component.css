@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://unpkg.com/aos@next/dist/aos.css');
+
+:root {
+    --bg-color: #0c0c0c;
+    --text-color: #fff;
+    --main-color: #6A1B9A;
+    --main-light-color: #a32eec;
+    --secondary-color: #2c2c2c;
+  }
+
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+  
+  form {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-top: 7rem;
+    margin-bottom: 1rem;
+
+  }
+
+  .title{
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  form label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  form input, form select {
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: var(--text-color);
+  }
+  
+  form input[type="submit"] {
+    background-color: var(--main-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: var(--main-light-color);
+  }
+  
+  .register{
+    margin-bottom: 4rem;
+    color: var(--main-light-color);
+  }
+
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

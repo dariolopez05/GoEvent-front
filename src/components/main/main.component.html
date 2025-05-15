@@ -1,0 +1,38 @@
+@if(!isLoggedIn) {
+<h1 class="section-title" data-aos="fade-up">Eventos Destacados</h1>
+} @if(isLoggedIn) {
+    <h1 class="section-title" data-aos="fade-up">Eventos Destacados En {{city}}</h1>
+}
+
+<div class="event-card-container" data-aos="slide-up" data-aos-duration="1000">
+    @for (event of topEvents; track event) { 
+        <div class="event-card">
+            <img class="event-image" src="{{ event.images[0].url }}" alt="{{ event.name }}">
+            <div class="event-info">
+              <h3>{{ event.name }}</h3>
+              <p class="event-date">{{ event.dates.start.localDate }}</p>
+              <p class="event-state">{{ event._embedded.venues[0].state.name }}</p>
+              <p class="event-state">{{ event._embedded.venues[0].name }}</p>
+              
+              <div class="event-buttons">
+                <a class="event-button" href="{{ event.url }}" target="_blank">Entradas</a>
+            @if(isLoggedIn) {
+              <button class="save-button" title="Guardar evento" (click)="saveEvent(event.id)">
+                @if (loadingById[event.id]) {
+                  <div class="spinner-container">
+                    <div class="spinner"></div>
+                  </div>
+                } @else {
+                  @if (favourites[event.id]) {
+                    <i class="material-icons">bookmark</i>
+                  } @else {
+                    <i class="material-icons">bookmark_border</i>
+                  }
+                }
+              </button>                  
+                }           
+              </div>
+            </div>
+          </div>
+    }
+</div>

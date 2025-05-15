@@ -1,0 +1,56 @@
+<footer  class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <h6>Acerca de GoEvent</h6>
+        <p class="text-justify">
+          GoEvent es tu plataforma para descubrir los mejores eventos locales. Desde conciertos hasta festivales, te ayudamos a encontrar lo que está pasando cerca de ti. ¡No te pierdas la experiencia de vivir los eventos más emocionantes de tu ciudad!
+        </p>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Secciones</h6>
+        <ul class="footer-links">
+          <li><a href="/home">Home</a></li>
+          <li><a href="/events">Eventos</a></li>
+          <li><a href="/maps">Mapa</a></li>
+          @if(!isLoggedIn) {
+            <li><a href="/login">Favoritos</a></li>
+          } @if(isLoggedIn) {
+            <li><a href="/favourites">Favoritos</a></li>
+          }
+        </ul>
+      </div>
+
+      <div class="col-xs-6 col-md-3">
+        <h6>Enlaces rápidos</h6>
+        <ul class="footer-links">
+          <li><a href="#about">Sobre nosotros</a></li>
+          <li><a href="#contact">Contáctanos</a></li>
+          <li><a href="/privacity">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2025 Todos los derechos reservados por
+          <a href="#">GoEvent</a>.
+        </p>
+        <p>Email: aodariolopez&commat;gmail.com | Tel: +34 722 653 127</p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><a class="facebook" href="#"><i class="ri-facebook-fill"></i></a></li>
+          <li><a class="twitter" href="#"><i class="ri-twitter-x-line"></i></a></li>
+          <li><a class="instagram" href="#"><i class="ri-instagram-line"></i></a></li>
+          <li><a id="contact" class="linkedin" href="#" ><i class="ri-linkedin-fill"></i></a></li>
+        </ul> 
+      </div>
+    </div>
+  </div>
+</footer>

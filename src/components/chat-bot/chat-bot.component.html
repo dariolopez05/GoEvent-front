@@ -1,0 +1,40 @@
+<div class="chatbot-container" [class.open]="isOpen">
+  <button class="chatbot-toggle" (click)="toggleChat()">💬</button>
+
+  <div *ngIf="isOpen || isAnimating"
+       class="chatbot-window"
+       [ngClass]="{'animate-in': isOpen && !isAnimating, 'animate-out': isAnimating}">
+
+    <div class="chatbot-header">
+      Chatbot
+      <span class="close-btn" (click)="toggleChat()">×</span>
+    </div>
+
+    <div class="chatbot-body" #chatBody>
+      <div *ngFor="let msg of messages"
+           class="chat-message"
+           [class.user]="msg.role === 'user'"
+           [class.bot]="msg.role === 'bot'">
+
+        <div class="message-content">
+          <ng-container *ngIf="msg.content !== '__loading__'; else loadingBubble">
+            {{ msg.content }}
+          </ng-container>
+
+          <ng-template #loadingBubble>
+            <div class="loading-spinner">
+              <span></span><span></span><span></span>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <div class="chatbot-input">
+      <input [(ngModel)]="userInput"
+             placeholder="Escribe tu mensaje..."
+             (keyup.enter)="sendMessage()" />
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>

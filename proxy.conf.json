@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://app.ticketmaster.com", //He creado este archivo porque hay veces que me falla la llamada a la API, así funciona mejor
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+} 

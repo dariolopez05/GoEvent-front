@@ -1,0 +1,38 @@
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10% 0%;
+  }
+  
+  #map {
+    width: 100%;
+    max-width: 1100px;
+    height: 600px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 1120px) {
+    #map {
+      margin: 0px 30px;
+    }
+  }
+
+  @media (max-width: 850px) {
+    #map {
+      margin-top: 5rem;
+    }
+  }
+
+  @media (max-width: 650px) {
+    #map {
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    #map {
+      height: 350px;
+    }
+  }
