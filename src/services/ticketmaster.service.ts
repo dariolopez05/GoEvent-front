@@ -13,12 +13,12 @@ export class TicketmasterService {
   constructor(public http: HttpClient, private router: Router) { }
 
   public getResponse(city: string): Observable<Ticketmaster> {
-    const url = `/api/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&city=${city}`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&city=${city}`;
     return this.http.get<Ticketmaster>(url);
   }
 
   public getResponseId(id: string): Observable<Ticketmaster> {
-  const url = `/api/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&id=${id}`;
+  const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&id=${id}`;
   return this.http.get<Ticketmaster>(url).pipe(
     catchError(error => {
       console.log('Error en getResponseId:', error);
@@ -32,12 +32,12 @@ export class TicketmasterService {
 }
 
   public getResponsePagination(page: number, city: string, query:string): Observable<Ticketmaster> {
-    const url = `/api/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&page=${page}&city=${city}&keyword=${query}`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&page=${page}&city=${city}&keyword=${query}`;
     return this.http.get<Ticketmaster>(url);
   }
 
   public getResponseSize(size: number): Observable<Ticketmaster> {
-    const url = `/api/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&size=${size}`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&size=${size}`;
     return this.http.get<Ticketmaster>(url);
   }
 }
