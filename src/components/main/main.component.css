@@ -40,7 +40,6 @@
     transition: transform 0.3s ease;
 }
 
-/* Tablet (2 columnas) */
 @media (max-width: 1024px) {
     .event-card-container {
         grid-template-columns: repeat(2, 1fr);
@@ -49,7 +48,6 @@
     }
 }
 
-/* Móvil (1 columna) */
 @media (max-width: 600px) {
     .event-card-container {
         grid-template-columns: 1fr;
@@ -133,6 +131,7 @@
 @media (max-width: 440px) { 
     .section-title{
         font-size: 2rem;
+        margin-bottom: 2rem;
     }
 
     .event-card-container {
