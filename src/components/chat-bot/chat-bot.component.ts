@@ -30,12 +30,11 @@ export class ChatBotComponent implements AfterViewChecked {
 
   toggleChat() {
     if (this.isOpen) {
-      // Animar salida antes de cerrar
       this.isAnimating = true;
       setTimeout(() => {
         this.isOpen = false;
         this.isAnimating = false;
-      }, 300); // Duración de la animación de salida (0.3s)
+      }, 300);
     } else {
       this.isOpen = true;
     }
