@@ -19,6 +19,14 @@ section{
     gap: 2rem;
 }
 
+@media (max-height: 850px) {
+  .hero {
+    height: 1000px;
+    margin-bottom: 200px;
+  }
+}
+
+
 .hero-img {
     position: relative;
     overflow: hidden; 
@@ -181,6 +189,10 @@ section{
   @media (max-width: 470px) {
     body {
       overflow-x: hidden; /* Evita scroll horizontal */
+    }
+
+    .hero {
+      padding-left: 10%;   
     }
   
     nav {
