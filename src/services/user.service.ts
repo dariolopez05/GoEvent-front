@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
   //private apiUrl = 'http://127.0.0.1:8000/api/users';
-  private apiUrl = 'http://goevent-back-production.up.railway.app/api/users';
+  private apiUrl = 'https://goevent-back-production.up.railway.app/api/users';
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +20,7 @@ export class UserService {
   }
 
   //private apiLogin = 'http://localhost:8000/login';
-  private apiLogin = 'http://goevent-back-production.up.railway.app/login';
+  private apiLogin = 'https://goevent-back-production.up.railway.app/login';
 
   login(email: string, password: string): Observable<any> {
     const body = { email, password };
@@ -29,7 +29,7 @@ export class UserService {
 
   setFavourites(userId: number, favourites: string[]): Observable<any> {
     //const url = 'http://localhost:8000/user/favourites';
-    const url = 'http://goevent-back-production.up.railway.app/user/favourites';
+    const url = 'https://goevent-back-production.up.railway.app/user/favourites';
     const body = { userId, eventIds: favourites };
   
     console.log('Datos enviados al backend:', body);
