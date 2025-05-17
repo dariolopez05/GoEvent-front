@@ -118,6 +118,11 @@
 	  margin-right: 0;
 	  font-weight: 600;
 	}
+
+	.contact{
+		font-size: 14px;
+		text-align: center;
+	}
   }
   
   .text-justify {
