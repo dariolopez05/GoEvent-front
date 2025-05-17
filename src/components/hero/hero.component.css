@@ -19,7 +19,7 @@ section{
     gap: 2rem;
 }
 
-@media (max-height: 850px) {
+@media (max-height: 650px) {
   .hero {
     height: 1000px;
     margin-bottom: 200px;
