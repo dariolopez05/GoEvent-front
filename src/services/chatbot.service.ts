@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class ChatbotService {
   //   return this.http.post(this.apiUrl, body, { headers });
   // }
 
-  private apiUrl = 'http://localhost:8000/api/chat'; // Ahora apunta al backend Symfony
+  private apiUrl = `${environment.apiUrl}/api/chat`;
 
   constructor(private http: HttpClient) { }
 
