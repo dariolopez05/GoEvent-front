@@ -117,3 +117,7 @@
   transition: background-color 0.3s ease;
 }
 
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+}
