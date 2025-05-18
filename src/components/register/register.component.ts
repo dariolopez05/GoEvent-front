@@ -17,9 +17,8 @@ export class RegisterComponent {
   loading = false;
   successMessage = '';
   errorMessage = '';
-  router: any;
 
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.form = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
