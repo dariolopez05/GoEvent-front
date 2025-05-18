@@ -19,13 +19,6 @@ section{
     gap: 2rem;
 }
 
-@media (max-height: 650px) {
-  .hero {
-    height: 1000px;
-    margin-bottom: 200px;
-  }
-}
-
 
 .hero-img {
     position: relative;
@@ -145,6 +138,13 @@ section{
   }
 }
 
+@media (max-height: 700px) {
+  .hero {
+    height: 1000px;
+    margin-bottom: 200px;
+  }
+}
+
 @media(max-width: 570px){
     .hero{
         height: 100vh;
@@ -157,6 +157,7 @@ section{
     :root{
         --big-font: 4rem;
     }
+    
 }
 
 @media(max-width: 440px){
