@@ -73,18 +73,21 @@ export class EventsMainComponent implements OnInit {
     if (this.actualPage + 1 < this.totalPages) {
       this.getResponse(this.actualPage + 1);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   previousPage(): void {
     if (this.actualPage > 0) {
       this.getResponse(this.actualPage - 1);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   goToPage(page: number): void {
     if (page >= 0 && page < this.totalPages) {
       this.getResponse(page);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   checkIfEventsAreSaved(): void {
