@@ -19,6 +19,7 @@
         type="text"
         [(ngModel)]="searchInput"
         placeholder="Buscar evento..."
+        (keydown.enter)="onSearchClick()"
       />
       <button class="search-button" (click)="onSearchClick()">Buscar</button>
     </div>
