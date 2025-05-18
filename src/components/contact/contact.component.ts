@@ -33,7 +33,7 @@ export class ContactComponent {
       next: (res) => {
         this.loading = false;
         this.successMessage = res.message || 'Mensaje enviado con éxito';
-        this.form = { name: '', email: '', phone: '', message: '' }; // reset form
+        this.form = { name: '', email: '', phone: '', message: '' }; 
       },
       error: (err) => {
         this.loading = false;
