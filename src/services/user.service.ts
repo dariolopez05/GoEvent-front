@@ -12,12 +12,12 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  createUser(userData: any) {
+  createUser(userData: any): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/ld+json'
+      'Content-Type': 'application/json'
     });
 
-    return this.http.post(this.apiUrl, userData, { headers });
+    return this.http.post(`${environment.apiUrl}/register`, userData, { headers });
   }
 
   login(email: string, password: string): Observable<any> {
