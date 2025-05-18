@@ -205,18 +205,19 @@ body {
   }
 
   .empty-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 200px; 
-  }
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
   
   .empty {
-    margin-top: 0;
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 5rem;
-  }
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
   
   .spinner-container {
     display: flex;
