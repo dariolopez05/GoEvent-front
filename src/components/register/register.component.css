@@ -60,7 +60,7 @@
     transition: background-color 0.3s ease;
   }
   
-  form input[type="submit"]:hover {
+  form input[type="submit"]:hover:not(.disabled-btn) {
     background-color: var(--main-light-color);
   }
   
@@ -108,3 +108,11 @@
   .privacy-checkbox label a:hover {
     text-decoration: underline;
   }  
+
+  .disabled-btn {
+  background-color: #cccccc; 
+  color: #4f4f4f;
+  cursor: default;
+  opacity: 0.4;
+  transition: background-color 0.3s ease;
+}

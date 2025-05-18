@@ -33,7 +33,13 @@
       </label>
     </div><br><br>
 
-    <input type="submit" value="Registrarse" [disabled]="form.invalid">
+    <input 
+  type="submit" 
+  value="Registrarse" 
+  [disabled]="form.invalid"
+  [ngClass]="{ 'disabled-btn': form.invalid }"
+/>
+
 
     @if (loading) {
       <div class="spinner-container">
