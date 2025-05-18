@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, EMPTY, Observable, throwError } from 'rxjs';
 import { Ticketmaster } from '../models/ticketmaster.interface';
 import { Router } from '@angular/router';
 import { timer } from 'rxjs';
@@ -19,29 +19,27 @@ export class TicketmasterService {
     return this.http.get<Ticketmaster>(url);
   }
 
-  public getResponseId(id: string): Observable<Ticketmaster> {
+ public getResponseId(id: string): Observable<Ticketmaster> {
   const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&id=${id}`;
   
   return this.http.get<Ticketmaster>(url).pipe(
-    retryWhen(errors =>
-      errors.pipe(
-        scan((retryCount, error) => {
-          if (retryCount >= 3 || error.status !== 429) throw error;
-          return retryCount + 1;
-        }, 0),
-        delayWhen(() => timer(1000))
-      )
-    ),
     catchError(error => {
-      console.log('Error en getResponseId:', error);
+      console.error('Error en getResponseId:', error);
+
       if (error.status === 429) {
-        window.alert('Demasiadas peticiones. Espera unos segundos e inténtalo de nuevo.');
+        window.alert('Demasiadas peticiones. Por favor espera unos segundos e inténtalo de nuevo.');
         this.router.navigate(['/home']);
+      } else if (error.status === 0) {
+        window.alert('Error de conexión o CORS. Intenta recargar la página.');
+      } else {
+        window.alert('Ha ocurrido un error inesperado.');
       }
-      return throwError(() => error);
+
+      return EMPTY; 
     })
   );
-  }
+}
+
 
   public getResponsePagination(page: number, city: string, query:string): Observable<Ticketmaster> {
     const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&page=${page}&city=${city}&keyword=${query}`;
