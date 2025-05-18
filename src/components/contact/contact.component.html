@@ -1,26 +1,42 @@
-<section class="contact-section" >
-    <div class="container">
-      <div class="sec-title" data-aos="fade-up" data-aos-duration="1400">
-        <h2>Contacto</h2>
-        <div class="text">¿Tenés alguna consulta o proyecto en mente? Escribime y charlamos.</div>
-      </div>
-  
-      <form  class="contact-form" action="https://formsubmit.co/p7956721@gmail.com" method="POST" data-aos="flip-down" data-aos-duration="1400"> 
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Nombre completo" required />
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Correo electrónico" required />
-        </div>
-        <div class="form-group">
-            <input type="tel" name="phone" placeholder="Teléfono" pattern="^(6|7|8|9)\d{8}$" title="Introduce un número de teléfono válido de España. Debe comenzar con 6, 7, 8 o 9 y tener 9 dígitos." required />
-        </div>
-        <div class="form-group">
-          <textarea name="message" placeholder="Escribí tu mensaje" required></textarea>
-        </div>
-        <div id="about" class="form-group">
-          <button type="submit" class="btn-style-one" >Enviar mensaje</button>
-        </div>
-      </form>
+<section class="contact-section">
+  <div class="container">
+    <div class="sec-title" data-aos="fade-up" data-aos-duration="1400">
+      <h2>Contacto</h2>
+      <div class="text">¿Tenés alguna consulta o proyecto en mente? Escribime y charlamos.</div>
     </div>
-  </section>
+
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form" data-aos="flip-down" data-aos-duration="1400">
+      <div class="form-group">
+        <input type="text" name="name" [(ngModel)]="form.name" placeholder="Nombre completo" required />
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" [(ngModel)]="form.email" placeholder="Correo electrónico" required />
+      </div>
+      <div class="form-group">
+        <input
+          type="tel"
+          name="phone"
+          [(ngModel)]="form.phone"
+          placeholder="Teléfono"
+          pattern="^(6|7|8|9)\\d{8}$"
+          title="Introduce un número de teléfono válido de España. Debe comenzar con 6, 7, 8 o 9 y tener 9 dígitos."
+          required
+        />
+      </div>
+      <div class="form-group">
+        <textarea name="message" [(ngModel)]="form.message" placeholder="Escribí tu mensaje" required></textarea>
+      </div>
+      <div id="about" class="form-group">
+        <button type="submit" class="btn-style-one" [disabled]="loading">Enviar mensaje</button>
+      </div>
+    </form>
+
+    @if (successMessage) {
+      <div class="success-message">{{ successMessage }}</div>
+    }
+
+    @if (errorMessage) {
+      <div class="error-message">{{ errorMessage }}</div>
+    }
+  </div>
+</section>
