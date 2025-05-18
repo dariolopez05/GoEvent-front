@@ -17,6 +17,7 @@ export class RegisterComponent {
   loading = false;
   successMessage = '';
   errorMessage = '';
+  router: any;
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.form = this.fb.group({
@@ -49,6 +50,7 @@ export class RegisterComponent {
         this.loading = false;
         this.successMessage = 'Usuario registrado con éxito';
         this.form.reset();
+        this.router.navigate(['/login']);
       },
       error: (error) => {
         this.loading = false;
