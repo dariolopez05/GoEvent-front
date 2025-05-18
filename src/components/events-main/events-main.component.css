@@ -366,6 +366,17 @@ body {
   flex-shrink: 0;
 }
 
+.no-results-message {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+
 .search-button:hover {
   background-color: #9C4E97;
 }

@@ -25,6 +25,11 @@
   </div>
 </div>
 
+@if (topEvents.length === 0) {
+  <div class="no-results-message">
+    No se encontraron eventos con esos filtros.
+  </div>
+} @else {
 <div
   class="event-card-container"
   data-aos="zoom-in"
@@ -68,6 +73,7 @@
     </div>
   }
 </div>
+}
 
 <div class="pagination-buttons">
   <div class="page-info">

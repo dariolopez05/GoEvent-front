@@ -32,6 +32,7 @@ export class EventsMainComponent implements OnInit {
   public loadingById: { [key: string]: boolean } = {};
   public searchInput = '';
   public searchQuery = '';
+  public noResultsMessage: string = '';
 
   constructor(
     private service: TicketmasterService,
@@ -59,15 +60,28 @@ export class EventsMainComponent implements OnInit {
   }
 
   getResponse(page: number = 0): void {
-    this.service
-      .getResponsePagination(page, this.selectedCity, this.searchQuery)
-      .subscribe((response) => {
+  this.service
+    .getResponsePagination(page, this.selectedCity, this.searchQuery)
+    .subscribe((response) => {
+      if (response._embedded && response._embedded.events) {
         this.topEvents = response._embedded.events;
-        this.totalPages = response.page.totalPages;
-        this.actualPage = response.page.number;
-        this.checkIfEventsAreSaved();
-      });
-  }
+      } else {
+        this.topEvents = []; 
+      }
+
+      this.totalPages = response.page.totalPages;
+      this.actualPage = response.page.number;
+
+      this.checkIfEventsAreSaved();
+
+      if (this.topEvents.length === 0) {
+        this.noResultsMessage = 'No se encontraron eventos con esos filtros.';
+      } else {
+        this.noResultsMessage = '';
+      }
+    });
+}
+
 
   nextPage(): void {
     if (this.actualPage + 1 < this.totalPages) {
