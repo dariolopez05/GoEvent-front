@@ -53,14 +53,7 @@ export class RegisterComponent {
       },
       error: (error) => {
         this.loading = false;
-
-        if (error.status === 409) {
-          this.errorMessage = 'El correo ya está registrado.';
-        } else {
-          this.errorMessage = 'Error al registrar usuario. Intenta de nuevo.';
-        }
-
-        console.error(error);
+        this.errorMessage = error.error?.error || 'Ha ocurrido un error al registrar el usuario';
       }
     });
   }
