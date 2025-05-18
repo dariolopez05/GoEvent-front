@@ -17,7 +17,7 @@ export class UserService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post(`${environment.apiUrl}/register`, userData, { headers });
+    return this.http.post(`${environment.apiUrl}/api/register`, userData, { headers });
   }
 
   login(email: string, password: string): Observable<any> {
