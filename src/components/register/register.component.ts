@@ -40,7 +40,6 @@ export class RegisterComponent {
       this.userService.createUser(formData).subscribe({
         next: (response: any) => {
           console.log('Usuario creado con éxito:', response);
-          window.alert('Usuario creado con éxito');
           this.router.navigate(['/login']);
           this.loading = false;
         },

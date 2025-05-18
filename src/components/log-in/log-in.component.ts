@@ -43,9 +43,7 @@ export class LogInComponent {
         localStorage.setItem('userName', res.user.username);
         localStorage.setItem('email', res.user.email);
         localStorage.setItem('favourites', JSON.stringify(res.user.favourites));
-  
-        window.alert('Login éxitoso');
-  
+    
         this.router.navigate(['/home']).then(() => {
           window.location.reload();
         });
