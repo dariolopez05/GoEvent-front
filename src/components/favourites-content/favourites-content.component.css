@@ -220,10 +220,8 @@ body {
     font-size: 1.8rem;
     color: #ffffff;
     margin: 0;
-    margin-top: 5rem;
+    margin-top: 15rem;
   }
-
-
 
   .spinner-container {
     display: flex;
