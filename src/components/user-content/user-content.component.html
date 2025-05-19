@@ -20,6 +20,12 @@
     </label>
 
     <button type="submit">Guardar cambios</button>
+    @if (loading) {
+      <div class="spinner-container">
+        <div class="spinner"></div>
+      </div>
+    }
+
   </form>
 
   <button (click)="logout()">Cerrar sesión</button>

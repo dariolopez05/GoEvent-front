@@ -16,6 +16,7 @@ export class UserContentComponent {
   email: string = '';
   successMessage = '';
   errorMessage = '';
+  loading = false;
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -27,6 +28,10 @@ export class UserContentComponent {
   }
 
   updateUser(): void {
+    this.loading = true;
+    this.successMessage = '';
+    this.errorMessage = '';
+
     const updatedUser = {
       id: this.userId,
       username: this.userName,
@@ -36,6 +41,7 @@ export class UserContentComponent {
 
     this.userService.updateUser(updatedUser).subscribe({
       next: (res) => {
+        this.loading = false;
         this.successMessage = 'Datos actualizados correctamente';
 
         localStorage.setItem('userName', this.userName);
@@ -43,6 +49,7 @@ export class UserContentComponent {
         localStorage.setItem('email', this.email);
       },
       error: (err) => {
+        this.loading = false;
         this.errorMessage = err.error?.error || 'Error al actualizar datos';
       },
     });
