@@ -5,7 +5,7 @@
       <div class="text">¿Tenés alguna consulta o proyecto en mente? Escribime y charlamos.</div>
     </div>
 
-    <form id="about" (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form" data-aos="flip-down" data-aos-duration="1400">
+    <form (ngSubmit)="onSubmit()" #contactForm="ngForm" class="contact-form" data-aos="flip-down" data-aos-duration="1400">
       <div class="form-group">
         <input type="text" name="name" [(ngModel)]="form.name" placeholder="Nombre completo" required />
       </div>
