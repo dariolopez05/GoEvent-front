@@ -42,7 +42,7 @@ export class TicketmasterService {
 
 
   public getResponsePagination(page: number, city: string, query:string): Observable<Ticketmaster> {
-    const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&page=${page}&city=${city}&keyword=${query}`;
+    const url = `https://app.ticketmaster.com/discovery/v2/events?countryCode=ES&apikey=${this.apiKey}&page=${page}&city=${city}&segmentName=${query}`;
     return this.http.get<Ticketmaster>(url);
   }
 
