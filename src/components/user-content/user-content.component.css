@@ -11,9 +11,7 @@ body {
 
 .user-card {
   max-width: 420px;
-  margin: 60px auto;
-  margin-top: 7rem;
-  margin-bottom: 7rem;
+  margin: 7rem auto;
   padding: 30px;
   background-color: var(--secondary-color);
   border-radius: 16px;
@@ -24,22 +22,21 @@ body {
 }
 
 .user-icon-circle {
-    width: 120px;
-    height: 120px;
-    background-color: var(--main-light-color);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 24px auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  }
-  
-  .user-icon-circle i {
-    font-size: 60px;
-    color: var(--text-color);
-  }
-   
+  width: 120px;
+  height: 120px;
+  background-color: var(--main-light-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.user-icon-circle i {
+  font-size: 60px;
+  color: var(--text-color);
+}
 
 .user-card h2 {
   font-size: var(--subtitle-font);
@@ -67,8 +64,15 @@ body {
   background-color: var(--main-light-color);
 }
 
-.user-card form input,
-.user-card form textarea {
+.user-card label {
+  display: block;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.user-card select,
+.user-card input {
   width: 100%;
   padding: 10px 10px;
   border: 1px solid #444;
@@ -77,15 +81,17 @@ body {
   color: var(--text-color);
   font-size: 16px;
   transition: all 0.3s ease;
-  margin-top: 8px;
+  box-sizing: border-box;
+  display: block;
   margin-bottom: 16px;
 }
 
-.user-card form input:focus,
-.user-card form textarea:focus {
+.user-card select:focus,
+.user-card input:focus {
   outline: none;
   border-color: var(--main-light-color);
   background-color: #222;
+  color: var(--text-color);
 }
 
 .user-card form button[type="submit"] {
@@ -100,7 +106,7 @@ body {
   margin-top: 12px;
 }
 
-.user-card button {
+.user-card button.logout {
   margin-top: 16px;
   padding: 12px 20px;
   background-color: #ff4d4d;
@@ -112,7 +118,7 @@ body {
   transition: background 0.3s;
 }
 
-.user-card button:hover {
+.user-card button.logout:hover {
   background-color: #e43f3f;
 }
 
@@ -152,27 +158,4 @@ body {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
-}
-
-.user-card select,
-.user-card input {
-  width: 70%;
-  padding: 10px 10px;
-  border: 1px solid #444;
-  border-radius: 10px;
-  background-color: #1a1a1a;
-  color: var(--text-color);
-  font-size: 16px;
-  transition: all 0.3s ease;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-}
-
-.user-card select:focus,
-.user-card input:focus {
-  outline: none;
-  border-color: var(--main-light-color);
-  background-color: #222;
-  color: var(--text-color);
 }
