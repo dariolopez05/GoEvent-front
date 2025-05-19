@@ -12,7 +12,7 @@ body {
 .user-card {
   max-width: 420px;
   margin: 60px auto;
-  margin-top: 10rem;
+  margin-top: 7rem;
   margin-bottom: 7rem;
   padding: 30px;
   background-color: var(--secondary-color);
