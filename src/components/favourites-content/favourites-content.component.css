@@ -2,6 +2,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
   }
+
   
   .section-title {
     font-size: var(--subtitle-font);
@@ -201,6 +202,9 @@ body {
   .section-header {
     position: relative;
     min-height: 60vh;
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
   }
 
   .empty-container {
@@ -212,11 +216,11 @@ body {
     text-align: center;
   }
 
-.empty {
-  font-size: 1.8rem;
-  color: #ffffff;
-  margin: 0;
-}
+  .empty {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 0;
+  }
 
 
 
