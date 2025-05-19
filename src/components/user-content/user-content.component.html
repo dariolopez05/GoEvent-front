@@ -1,12 +1,38 @@
 <div class="user-card">
-    <div class="user-icon-circle">
-      <i class="bx bx-user"></i>
-    </div>
-  
-    <p><strong>Nombre:</strong> {{ userName }}</p>
-    <p><strong>Ciudad:</strong> {{ city }}</p>
-    <p><strong>Email:</strong> {{ email }}</p>
-  
-    <button (click)="logout()">Cerrar sesión</button>
+  <div class="user-icon-circle">
+    <i class="bx bx-user"></i>
   </div>
-  
+
+  <form (ngSubmit)="updateUser()">
+    <label>
+      <strong>Nombre:</strong>
+      <input type="text" [(ngModel)]="userName" name="username" required />
+    </label>
+
+    <label>
+      <strong>Ciudad:</strong>
+      <input type="text" [(ngModel)]="city" name="city" required />
+    </label>
+
+    <label>
+      <strong>Email:</strong>
+      <input type="email" [(ngModel)]="email" name="email" required />
+    </label>
+
+    <button type="submit">Guardar cambios</button>
+  </form>
+
+  <button (click)="logout()">Cerrar sesión</button>
+
+  @if (successMessage) {
+    <div class="success-message">
+      {{ successMessage }}
+    </div>
+  }
+
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  }
+</div>

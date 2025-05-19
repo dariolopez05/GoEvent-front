@@ -34,9 +34,8 @@ section{
     filter: brightness(0.75);
 }
 
-/* Agregar sombras suaves alrededor de la imagen */
 .hero-img img {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Sombra suave y difusa */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 
@@ -189,7 +188,7 @@ section{
   }  
   @media (max-width: 470px) {
     body {
-      overflow-x: hidden; /* Evita scroll horizontal */
+      overflow-x: hidden; 
     }
 
     .hero {

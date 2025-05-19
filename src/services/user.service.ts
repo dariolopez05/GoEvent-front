@@ -31,4 +31,10 @@ export class UserService {
 
     return this.http.post<any>(url, body);
   }
+
+  updateUser(userData: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put(`${environment.apiUrl}/user/update`, userData, { headers });
+  }
+
 }

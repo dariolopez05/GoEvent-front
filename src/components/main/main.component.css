@@ -29,13 +29,13 @@
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
-    max-width: 480px; /* más ancho de card */
+    max-width: 480px;
     color: white;
 }
 
 .event-image {
     width: 100%;
-    height: 270px; /* opcional: agrandar imagen también */
+    height: 270px;
     object-fit: cover;
     transition: transform 0.3s ease;
 }
