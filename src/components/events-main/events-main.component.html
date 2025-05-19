@@ -22,8 +22,10 @@
         (keydown.enter)="onSearchClick()"
       />
       <button class="search-button" (click)="onSearchClick()">Buscar</button>
+      <button class="clear-filters-button" (click)="clearFilters()">Limpiar filtros</button>
     </div>
   </div>
+
 </div>
 
 @if (topEvents.length === 0) {

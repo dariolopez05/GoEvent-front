@@ -148,4 +148,13 @@ export class EventsMainComponent implements OnInit {
       this.loadingById[eventId] = false;
     }
   }
+
+  clearFilters(): void {
+    this.selectedCity = '';
+    this.searchInput = '';
+    this.searchQuery = '';
+    this.actualPage = 0;
+    this.getResponse();
+  }
+
 }
