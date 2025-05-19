@@ -155,6 +155,7 @@ export class EventsMainComponent implements OnInit {
     this.searchQuery = '';
     this.actualPage = 0;
     this.getResponse();
+    window.location.reload();
   }
 
 }
