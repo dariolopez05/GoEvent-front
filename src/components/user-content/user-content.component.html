@@ -9,10 +9,21 @@
       <input type="text" [(ngModel)]="userName" name="username" required />
     </label>
 
-    <label>
-      <strong>Ciudad:</strong>
-      <input type="text" [(ngModel)]="city" name="city" required />
-    </label>
+    <label for="city"><strong>Ciudad:</strong></label><br />
+    <select id="city" [(ngModel)]="city" name="city" required>
+      <option value="">Seleccione una ciudad</option>
+      <option value="Madrid">Madrid</option>
+      <option value="Barcelona">Barcelona</option>
+      <option value="Valencia">Valencia</option>
+      <option value="Sevilla">Sevilla</option>
+      <option value="Zaragoza">Zaragoza</option>
+      <option value="Málaga">Málaga</option>
+      <option value="Murcia">Murcia</option>
+      <option value="Palma">Palma</option>
+      <option value="Bilbao">Bilbao</option>
+      <option value="Alicante">Alicante</option>
+    </select><br /><br />
+
 
     <label>
       <strong>Email:</strong>
