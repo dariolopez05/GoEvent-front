@@ -42,4 +42,12 @@ export class ContactComponent {
       },
     });
   }
+
+  allowOnlyNumbers(event: KeyboardEvent): void {
+  const charCode = event.key;
+  if (!/^\d$/.test(charCode)) {
+    event.preventDefault();
+  }
+}
+
 }

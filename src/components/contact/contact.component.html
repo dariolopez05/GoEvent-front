@@ -13,16 +13,19 @@
         <input type="email" name="email" [(ngModel)]="form.email" placeholder="Correo electrónico" required />
       </div>
       <div class="form-group">
-        <input
-          type="tel"
-          name="phone"
-          [(ngModel)]="form.phone"
-          placeholder="Teléfono"
-          pattern="^(6|7|8|9)\\d{8}$"
-          title="Introduce un número de teléfono válido de España. Debe comenzar con 6, 7, 8 o 9 y tener 9 dígitos."
-          required
-        />
-      </div>
+      <input
+        type="tel"
+        name="phone"
+        [(ngModel)]="form.phone"
+        placeholder="Teléfono"
+        inputmode="numeric"
+        pattern="^[6789][0-9]{8}$"
+        title="Introduce un número de teléfono válido de España. Debe comenzar con 6, 7, 8 o 9 y tener 9 dígitos."
+        maxlength="9"
+        (keypress)="allowOnlyNumbers($event)"
+        required
+      />
+    </div>
       <div class="form-group">
         <textarea name="message" [(ngModel)]="form.message" placeholder="Escribí tu mensaje" required></textarea>
       </div>
