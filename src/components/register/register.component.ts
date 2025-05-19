@@ -29,32 +29,43 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    if (this.form.invalid) return;
+  if (this.form.invalid) return;
 
-    this.loading = true;
-    this.successMessage = '';
-    this.errorMessage = '';
+  const { username, email, password, city } = this.form.value;
 
-    const { username, email, password, city } = this.form.value;
-
-    const userData = {
-      username,
-      email,
-      password,
-      city
-    };
-
-    this.userService.createUser(userData).subscribe({
-      next: () => {
-        this.loading = false;
-        this.successMessage = 'Usuario registrado con éxito';
-        this.form.reset();
-        this.router.navigate(['/login']);
-      },
-      error: (error) => {
-        this.loading = false;
-        this.errorMessage = error.error?.error || 'Ha ocurrido un error al registrar el usuario';
-      }
-    });
+  if (!this.validatePasswordStrength(password)) {
+    this.errorMessage = 'La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula y un número.';
+    return;
   }
+
+  this.loading = true;
+  this.successMessage = '';
+  this.errorMessage = '';
+
+  const userData = {
+    username,
+    email,
+    password,
+    city
+  };
+
+  this.userService.createUser(userData).subscribe({
+    next: () => {
+      this.loading = false;
+      this.successMessage = 'Usuario registrado con éxito';
+      this.form.reset();
+      this.router.navigate(['/login']);
+    },
+    error: (error) => {
+      this.loading = false;
+      this.errorMessage = error.error?.error || 'Ha ocurrido un error al registrar el usuario';
+    }
+  });
+}
+
+  private validatePasswordStrength(password: string): boolean {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    return passwordRegex.test(password);
+  }
+
 }
