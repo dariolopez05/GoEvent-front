@@ -12,7 +12,7 @@ import { environment } from '../environments/environment.prod';
 })
 export class TicketmasterService {
   public apiKey: string = 'tZ08mVmIlAuo2fAnahB2eYN5ThiLLaQY';
-  private apiTicketMaster = `${environment.apiUrl}/api/ticketmaster`;
+  private apiTicketMaster = `${environment.apiUrl}/api/ticketmaster/id`;
 
   constructor(public http: HttpClient, private router: Router) { }
 
